@@ -1,0 +1,74 @@
+[
+  {
+    "file": "01-sag-tik-menusu-gece.png",
+    "theme": "dark",
+    "title": "Right-click in File Explorer: Quick Preview",
+    "caption": "Right-click a file, choose “Quick Preview” and the window opens instantly"
+  },
+  {
+    "file": "02-resim-gece.png",
+    "theme": "dark",
+    "title": "Images: zoom, fit, rotate",
+    "caption": "JPG, PNG, WebP, GIF, BMP, TIFF, ICO, HEIC with a file info panel"
+  },
+  {
+    "file": "03-psd-katmanlar-gece.png",
+    "theme": "dark",
+    "title": "Photoshop PSD: composite image and layers",
+    "caption": "PSD/PSB without Photoshop: image, color mode and layer list"
+  },
+  {
+    "file": "04-pdf-gunduz.png",
+    "theme": "light",
+    "title": "PDF: page by page with a thumbnail strip",
+    "caption": "Pages shown as images; PgUp/PgDn to browse, zoom in and out"
+  },
+  {
+    "file": "05-kod-gece.png",
+    "theme": "dark",
+    "title": "Text and code with syntax colors",
+    "caption": "Over 55 languages; read-only, line numbers, encoding detection"
+  },
+  {
+    "file": "06-markdown-gunduz.png",
+    "theme": "light",
+    "title": "Markdown: formatted view with contents",
+    "caption": "Tables, code blocks and links; remote images are never loaded"
+  },
+  {
+    "file": "07-excel-gece.png",
+    "theme": "dark",
+    "title": "Excel: sheets and cells",
+    "caption": "See docx, xlsx and pptx content without Office installed"
+  },
+  {
+    "file": "08-word-gunduz.png",
+    "theme": "light",
+    "title": "Word: headings, lists and tables",
+    "caption": "The document text and tables in a clean, readable view"
+  },
+  {
+    "file": "09-arsiv-gunduz.png",
+    "theme": "light",
+    "title": "ZIP archive: list of contents",
+    "caption": "Look inside without extracting: files, sizes, dates, search"
+  },
+  {
+    "file": "10-video-gece.png",
+    "theme": "dark",
+    "title": "Video and audio",
+    "caption": "MP4, WebM, MOV, MP3, WAV, FLAC… in the built-in player"
+  },
+  {
+    "file": "11-ayarlar-genel-gece.png",
+    "theme": "dark",
+    "title": "Settings: tray, start with Windows, right-click",
+    "caption": "Waits in the tray; “Hide” removes the icon, right-click keeps working"
+  },
+  {
+    "file": "12-ayarlar-onizleme-gunduz.png",
+    "theme": "light",
+    "title": "Settings › Preview",
+    "caption": "Choose file types, default zoom and shortcuts; everything stays local"
+  }
+]

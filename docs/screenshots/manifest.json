@@ -1,0 +1,74 @@
+[
+  {
+    "file": "01-sag-tik-menusu-gece.png",
+    "theme": "dark",
+    "title": "Gezgin'de sağ tık: Hızlı Önizleme",
+    "caption": "Dosyaya sağ tıklayın, “Hızlı Önizleme”yi seçin; pencere anında açılır"
+  },
+  {
+    "file": "02-resim-gece.png",
+    "theme": "dark",
+    "title": "Resimler: yakınlaştır, sığdır, döndür",
+    "caption": "JPG, PNG, WebP, GIF, BMP, TIFF, ICO, HEIC; dosya bilgisi paneliyle"
+  },
+  {
+    "file": "03-psd-katmanlar-gece.png",
+    "theme": "dark",
+    "title": "Photoshop PSD: birleşik görüntü ve katmanlar",
+    "caption": "Photoshop olmadan PSD/PSB: görüntü, renk modu, katman listesi"
+  },
+  {
+    "file": "04-pdf-gunduz.png",
+    "theme": "light",
+    "title": "PDF: sayfa sayfa, küçük resim şeridiyle",
+    "caption": "Sayfalar resim gibi; PgUp/PgDn ile gezinme, yakınlaştırma"
+  },
+  {
+    "file": "05-kod-gece.png",
+    "theme": "dark",
+    "title": "Metin ve kod: söz dizimi renkli",
+    "caption": "55'ten fazla dil; salt okunur, satır numaralı, kodlama algılamalı"
+  },
+  {
+    "file": "06-markdown-gunduz.png",
+    "theme": "light",
+    "title": "Markdown: biçimli görünüm ve içindekiler",
+    "caption": "Tablolar, kod blokları, bağlantılar; uzak resimler yüklenmez"
+  },
+  {
+    "file": "07-excel-gece.png",
+    "theme": "dark",
+    "title": "Excel: sayfalar ve hücreler",
+    "caption": "docx, xlsx ve pptx içeriği Office kurulu olmadan görünür"
+  },
+  {
+    "file": "08-word-gunduz.png",
+    "theme": "light",
+    "title": "Word: başlıklar, listeler ve tablolar",
+    "caption": "Belgenin metni ve tabloları sade, okunaklı bir görünümde"
+  },
+  {
+    "file": "09-arsiv-gunduz.png",
+    "theme": "light",
+    "title": "ZIP arşivi: içerik listesi",
+    "caption": "Açmadan bakın: dosyalar, boyutlar, tarihler, arama"
+  },
+  {
+    "file": "10-video-gece.png",
+    "theme": "dark",
+    "title": "Video ve ses",
+    "caption": "MP4, WebM, MOV, MP3, WAV, FLAC… yerleşik oynatıcıda"
+  },
+  {
+    "file": "11-ayarlar-genel-gece.png",
+    "theme": "dark",
+    "title": "Ayarlar: tepsi, Windows ile başlat, sağ tık",
+    "caption": "Tepside bekler; “Gizle” ile simge kalkar, sağ tık çalışmaya devam eder"
+  },
+  {
+    "file": "12-ayarlar-onizleme-gunduz.png",
+    "theme": "light",
+    "title": "Ayarlar › Önizleme",
+    "caption": "Türleri seçin, varsayılan yakınlaştırma, kısayollar; her şey yerel"
+  }
+]

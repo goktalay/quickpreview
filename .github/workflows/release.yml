@@ -1,0 +1,89 @@
+# Windows exe'lerini derler.
+# - "v1.2.3" gibi bir etiket gönderilince: sürümü etiketten alır, derler ve GitHub Release'e ekler.
+# - Actions sekmesinden elle çalıştırılınca (workflow_dispatch):
+#     "version" boşsa yalnızca derler, exe'leri "artifact" olarak saklar;
+#     "version" verilirse (ör. 1.0.0) v<sürüm> etiketini bu commit'te oluşturup etiketle yayınla aynı işi yapar.
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Yayınlanacak sürüm (ör. 1.0.0). Boş bırakılırsa yalnızca derlenir.'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Sürümü belirle
+        shell: bash
+        env:
+          INPUT_VERSION: ${{ github.event.inputs.version }}
+        run: |
+          if [[ "$GITHUB_REF" == refs/tags/v* ]]; then V="${GITHUB_REF_NAME#v}"; else V="${INPUT_VERSION#v}"; fi
+          if [ -n "$V" ]; then
+            [[ "$V" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] || { echo "::error::Geçersiz sürüm: $V"; exit 1; }
+            echo "V=$V" >> "$GITHUB_ENV"
+            npm version "$V" --no-git-tag-version --allow-same-version
+          fi
+
+      - run: npm ci
+
+      - name: Testler
+        run: npm test
+
+      - name: Exe'leri derle
+        run: npx electron-builder --win --publish never
+        env:
+          CSC_IDENTITY_AUTO_DISCOVERY: false
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Quick-Preview-windows
+          path: dist/*.exe
+          retention-days: 14
+
+      - name: Release'e ekle
+        if: env.V != ''
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ env.V }}
+          target_commitish: ${{ github.sha }}
+          name: Quick Preview ${{ env.V }}
+          files: dist/*.exe
+          generate_release_notes: true
+
+      - name: sha256
+        if: env.V != ''
+        shell: bash
+        run: sha256sum dist/*.exe
+
+
+
+      # Exe kullanıcılara Mastertool hesabıyla dağıtılır (Hesabım ve Master Tool). Quick Preview bir Araç olduğu için
+      # yükleme mastertool.download'a yapılır: POST /api/qp/releases/<sürüm>/setup, sonra /portable (parçalı, ≤ 90 MB).
+      # Anahtar depo secret'ı QUICKPREVIEW_RELEASE_KEY'dedir (X-Release-Key); tanımlı değilse adım atlanır.
+      # Ayrıntılar scripts/upload-quickpreview.sh.
+      - name: mastertool.download'a yükle
+        if: env.V != ''
+        shell: bash
+        env:
+          QUICKPREVIEW_RELEASE_KEY: ${{ secrets.QUICKPREVIEW_RELEASE_KEY }}
+        run: |
+          NOTES=""
+          if [[ "$GITHUB_REF" == refs/tags/v* ]]; then NOTES="$(git for-each-ref --format='%(contents)' "refs/tags/$GITHUB_REF_NAME")"; fi
+          bash scripts/upload-quickpreview.sh "$V" "dist/Quick-Preview-Setup-$V.exe" "$NOTES" "dist/Quick-Preview-Portable-$V.exe"

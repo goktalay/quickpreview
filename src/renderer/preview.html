@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <!-- Dosya içeriği hiçbir yere istek yaptıramaz: ağ adresleri yok, yalnız yerel dosya / data / blob -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; worker-src 'self' blob:; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: file:; media-src 'self' file: blob:; font-src 'self' data:; connect-src 'self' file: data: blob:">
+  <title>Quick Preview</title>
+  <link rel="stylesheet" href="common.css">
+  <link rel="stylesheet" href="hljs.css">
+  <link rel="stylesheet" href="preview.css">
+</head>
+<body>
+  <div class="pv">
+    <header class="pv-bar">
+      <div class="pv-file">
+        <span class="pv-ic" id="fileIcon"></span>
+        <div class="pv-titles">
+          <div class="pv-name ltr" id="fileName"></div>
+          <div class="pv-sub" id="fileSub"></div>
+        </div>
+      </div>
+      <div class="pv-tools" id="tools"></div>
+      <span class="spacer"></span>
+      <div class="pv-actions">
+        <button class="icon-btn" id="btnOpen"></button>
+        <button class="icon-btn" id="btnReveal"></button>
+        <button class="icon-btn" id="btnInfo"></button>
+        <button class="icon-btn" id="btnTheme"></button>
+        <button class="icon-btn" id="btnClose"></button>
+      </div>
+    </header>
+    <div class="pv-main">
+      <aside class="pv-side hidden" id="side"></aside>
+      <div class="pv-center">
+        <div class="pv-view" id="view"></div>
+        <button class="pv-nav prev hidden" id="navPrev"></button>
+        <button class="pv-nav next hidden" id="navNext"></button>
+      </div>
+      <aside class="pv-info hidden" id="info"></aside>
+    </div>
+  </div>
+
+  <script src="../i18n.js"></script>
+  <script src="ui.js"></script>
+  <script src="stage.js"></script>
+  <script src="preview.js"></script>
+</body>
+</html>

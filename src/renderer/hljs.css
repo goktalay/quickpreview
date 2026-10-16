@@ -1,0 +1,27 @@
+/* Söz dizimi renkleri (highlight.js) — Notepad Master'ın "Mastertool" editör temalarıyla aynı palet */
+:root {
+  --hl-comment: #6f7d93; --hl-keyword: #a78bfa; --hl-string: #5eead4; --hl-number: #fbbf24; --hl-type: #22d3ee;
+  --hl-func: #93c5fd; --hl-tag: #f472b6; --hl-attr: #fbbf24; --hl-regexp: #fb923c; --hl-meta: #a5b2c6;
+  --hl-add: rgba(52, 211, 153, .14); --hl-del: rgba(248, 113, 113, .14);
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --hl-comment: #7b8799; --hl-keyword: #6d28d9; --hl-string: #0f766e; --hl-number: #b45309; --hl-type: #0e7490;
+    --hl-func: #1d4ed8; --hl-tag: #be185d; --hl-attr: #b45309; --hl-regexp: #c2410c; --hl-meta: #475569;
+    --hl-add: rgba(5, 150, 105, .12); --hl-del: rgba(220, 38, 38, .10);
+  }
+}
+.hljs-comment, .hljs-quote { color: var(--hl-comment); font-style: italic; }
+.hljs-keyword, .hljs-selector-tag, .hljs-literal, .hljs-doctag, .hljs-built_in.hljs-keyword { color: var(--hl-keyword); }
+.hljs-string, .hljs-meta .hljs-string, .hljs-template-variable, .hljs-addition { color: var(--hl-string); }
+.hljs-number, .hljs-symbol, .hljs-bullet, .hljs-variable.constant_ { color: var(--hl-number); }
+.hljs-type, .hljs-title.class_, .hljs-built_in, .hljs-selector-class, .hljs-variable.language_ { color: var(--hl-type); }
+.hljs-title, .hljs-title.function_, .hljs-function .hljs-title, .hljs-section { color: var(--hl-func); }
+.hljs-name, .hljs-tag, .hljs-selector-id { color: var(--hl-tag); }
+.hljs-attr, .hljs-attribute, .hljs-property, .hljs-selector-attr, .hljs-selector-pseudo { color: var(--hl-attr); }
+.hljs-regexp, .hljs-link { color: var(--hl-regexp); }
+.hljs-meta, .hljs-punctuation, .hljs-operator { color: var(--hl-meta); }
+.hljs-addition { background: var(--hl-add); }
+.hljs-deletion { background: var(--hl-del); color: var(--err); }
+.hljs-emphasis { font-style: italic; }
+.hljs-strong { font-weight: 700; }

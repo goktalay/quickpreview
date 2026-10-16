@@ -1,0 +1,96 @@
+{
+  "name": "quick-preview",
+  "productName": "Quick Preview",
+  "version": "1.0.0",
+  "description": "Gezgin'de sağ tıkla dosyaları anında önizler: resim, Photoshop PSD, PDF, metin, Office, video ve arşiv",
+  "main": "src/main.js",
+  "author": "Mastertool",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test",
+    "icon": "node scripts/make-icon.js",
+    "samples": "node scripts/make-samples.js",
+    "screenshots": "node scripts/screenshots.js",
+    "dist": "electron-builder --win",
+    "dist:portable": "electron-builder --win portable"
+  },
+  "dependencies": {
+    "@napi-rs/keyring": "^2.1.1",
+    "ag-psd": "^31.0.3",
+    "heic-decode": "^2.1.0",
+    "highlight.js": "^11.11.1",
+    "marked": "^15.0.12",
+    "pdfjs-dist": "4.10.38",
+    "utif": "^3.1.0"
+  },
+  "devDependencies": {
+    "electron": "^33.2.1",
+    "electron-builder": "^25.1.8",
+    "playwright-core": "^1.49.0",
+    "png-to-ico": "^2.1.8",
+    "sharp": "^0.33.5"
+  },
+  "build": {
+    "appId": "com.mastertool.quickpreview",
+    "productName": "Quick Preview",
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "src/**/*",
+      "build/icon.png",
+      "package.json",
+      "!node_modules/pdfjs-dist/legacy/**",
+      "!node_modules/pdfjs-dist/types/**",
+      "!node_modules/pdfjs-dist/image_decoders/**",
+      "!node_modules/pdfjs-dist/web/**",
+      "!node_modules/pdfjs-dist/**/*.map",
+      "!node_modules/highlight.js/es/**",
+      "!node_modules/highlight.js/styles/**",
+      "!node_modules/highlight.js/scss/**",
+      "!node_modules/ag-psd/dist-es/**",
+      "!node_modules/ag-psd/src/**",
+      "!node_modules/**/*.d.ts",
+      "!node_modules/libheif-js/libheif/**",
+      "!node_modules/libheif-js/libheif-wasm/*.mjs",
+      "!node_modules/libheif-js/libheif-wasm/libheif.js",
+      "!node_modules/libheif-js/libheif-wasm/libheif.wasm",
+      "!node_modules/@napi-rs/canvas/**",
+      "!node_modules/@napi-rs/canvas-*/**",
+      "!node_modules/**/.v8-cache/**",
+      "!node_modules/marked/bin/**",
+      "!node_modules/marked/man/**"
+    ],
+    "win": {
+      "icon": "build/icon.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "artifactName": "Quick-Preview-Setup-${version}.exe",
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "shortcutName": "Quick Preview",
+      "include": "build/installer.nsh",
+      "menuCategory": "Master Tool"
+    },
+    "portable": {
+      "artifactName": "Quick-Preview-Portable-${version}.exe"
+    }
+  }
+}
